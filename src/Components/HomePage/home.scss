@@ -1,20 +1,70 @@
-.players-home-page{
-    .players-list{
-        display: inline-flex;
-        flex-direction: column;
-        .player-card{
-            box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;            width: 100%;
-            min-width: 300px;
-            min-height: 100px;
-            margin: 20px;
-            padding: 20px;
-            .player-name{
-                font-family: helvetica,"Segoe UI",Arial,sans-serif;
-                color: #222;
-                font-size: 40px;
-                line-height: 50px;
-
-            }
-        }
+.players-home-page {
+  .players-list {
+    display: inline-flex;
+    flex-direction: column;
+    .player-card {
+      box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
+        rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
+        rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+      width: 100%;
+      min-height: 100px;
+      margin: 20px;
+      padding: 20px;
+      width: 500px;
+      .player-name {
+        font-family: helvetica, "Segoe UI", Arial, sans-serif;
+        color: #222;
+        font-size: 40px;
+        line-height: 50px;
+      }
     }
+  }
+}
+.pagination {
+  display: flex;
+  -moz-box-align: center;
+  align-items: center;
+  -moz-box-pack: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+  margin-bottom: 50px;
+  button {
+    border: none;
+    margin: 5px;
+    cursor: pointer;
+  }
+  .item {
+    background: #fff;
+    border: 1px solid #dbdee9;
+    border-radius: 32px;
+    cursor: pointer;
+    color: #77777e;
+    min-width: 32px;
+    min-height: 32px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+    letter-spacing: normal;
+    display: flex;
+    -moz-box-align: center;
+    align-items: center;
+    -moz-box-pack: center;
+    justify-content: center;
+    margin: 2px;
+  }
+  .disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  button{
+    background: none;
+  }
+  .active {
+    background: #effbfc;
+    border: 1px solid #00b5b7;
+    color: #000;
+  }
 }
