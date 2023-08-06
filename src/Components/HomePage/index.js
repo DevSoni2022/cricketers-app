@@ -6,6 +6,9 @@ const Home = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
   const [pageNumbers, setPageNumbers] = useState([]);
+  const [sortBy,setSortBy] = useState(null)
+
+  const [sortData,setSortData] = useState(null)
 
   const getAge = (dateString) => {
     var today = new Date();
@@ -73,10 +76,73 @@ const Home = () => {
   const itemsToDiaplay =
     data && data.length > 0 && data.slice(startIndex, endIndex);
 
+const sortObj =
+    [
+        {
+            id:1,
+            SortBy:'All'
+        }, 
+        {
+            id:2,
+            SortBy:'Name'
+        },
+        {
+            id:3,
+            SortBy:'Age'
+        },
+        {
+            id:4,
+            SortBy:'Rank'
+        }
+    ]
+
+    const HandleSortBy=(ele)=>{
+        debugger
+        let type = ele.SortBy.toLowerCase()
+        if(type == 'rank'){
+      const result = data.sort((a, b) => a.rank - b.rank);
+      setSortData(result)
+    }
+        if(type == 'name'){
+            const result = data.sort(function (a, b) {
+                if (a.name < b.name) {
+                  return -1;
+                }
+                if (a.name > b.name) {
+                  return 1;
+                }
+                return 0;
+              });
+              setSortData(result)
+              }
+    }
+    console.log(sortData,"{{{{")
+
+    useEffect(()=>{
+setData(sortData)
+    },[sortData])
   return (
     <>
+    
       {data && data.length > 0 ? (
         <div>
+            <div className="top-contariner">
+                <div className="inner-container">
+                <div className="">
+
+                </div>
+                <div className="search-container">
+                    <lable>Choose Sort By</lable>
+                <ul>
+                {
+                    sortObj && sortObj.map((ele,index)=>{
+                        return <li onClick={()=>HandleSortBy(ele)}>{ele.SortBy}</li>
+                    })
+                }
+                </ul>
+                </div>
+                </div>
+            </div>
           <div className="players-home-page">
             <div className="players-list">
               {data &&
