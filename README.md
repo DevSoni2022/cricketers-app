@@ -17,6 +17,10 @@ User can Sort Players details based on different parameter.
 On Home page user can see whole list of player by using pagination.
 
 
+---------------------
+Time Taken to complete assignemet Approx - 3 Hours
+
+
 ## Details Page
 
 When you want know more info about player click on that land on player-details page.
