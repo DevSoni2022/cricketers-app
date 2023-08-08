@@ -9,7 +9,7 @@ const Home = () => {
   const [sortBy, setSortBy] = useState(null);
   const [sortData, setSortData] = useState(null);
   const [showSortBy,setshowSortBy] = useState(false);
-  const [sortByText,setSortByText] = useState(false)
+  const [sortByText,setSortByText] = useState(null)
   const getAge = (dateString) => {
     var today = new Date();
     var birthDate = new Date(dateString);
@@ -153,7 +153,7 @@ const Home = () => {
             <div className="inner-container">
               <div className=""></div>
               <div className="search-container">
-                <lable className="heading" onClick={()=>{setshowSortBy(!sortBy)}}>{sortByText ? `Sort By ${sortByText}` :  'Choose Sort By'}</lable>
+                <lable className="heading" onClick={()=>{setshowSortBy(!sortBy)}}>{sortByText && sortByText.length>0 ? `Sort By ${sortByText}` :  'Choose Sort By'}</lable>
                 {showSortBy &&<ul>
                   { sortObj &&
                     sortObj.map((ele, index) => {
