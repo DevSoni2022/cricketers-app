@@ -2,7 +2,7 @@
   .players-list {
     display: inline-flex;
     flex-direction: column;
-    a{
+    a {
       text-decoration: none;
     }
     .player-card {
@@ -14,6 +14,7 @@
       margin: 20px;
       padding: 20px;
       width: 500px;
+      color: #000;
       .player-name {
         font-family: helvetica, "Segoe UI", Arial, sans-serif;
         color: #222;
@@ -62,7 +63,7 @@
     opacity: 0.5;
     cursor: not-allowed;
   }
-  button{
+  button {
     background: none;
   }
   .active {
