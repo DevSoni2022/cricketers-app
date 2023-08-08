@@ -149,6 +149,7 @@ const Home = () => {
     <>
       {data && data.length > 0 ? (
         <div>
+          <h1 className="heading-top">Cricket App</h1>
           <div className="top-contariner">
             <div className="inner-container">
               <div className=""></div>

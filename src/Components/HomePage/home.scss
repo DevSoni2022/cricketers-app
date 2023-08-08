@@ -75,6 +75,7 @@
 
 .search-container{
   position: relative;
+  margin-top: 30px;
   .heading{
     font-family: helvetica, "Segoe UI", Arial, sans-serif;
         color: #222;
@@ -97,4 +98,14 @@ ul{
   box-shadow: 0 3px 8px rgba(0,0,0,.15);
   left: 46%;
 }
+}
+.heading-top{
+  font-family: helvetica, "Segoe UI", Arial, sans-serif;
+  color: #222;
+  font-size: 28px;
+  line-height: 35px;
+  padding: 20px 0px;
+  text-align: center;
+  align-items: center;
+  border-bottom: 1px solid rgba(206, 198, 198,.5);
 }
