@@ -1,6 +1,18 @@
 import data from './players';
 
 const getPlayers = () => {
+    const getAge = (dateString) => {
+        dateString =new Date(dateString)
+        var today = new Date();
+        var birthDate = new Date(dateString);
+        var age = today.getFullYear() - birthDate.getFullYear();
+        var m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+          age--;
+        }
+        return age;
+      };
+      
     return Promise.resolve(
         data
             .sort((a, b) => {
@@ -13,9 +25,11 @@ const getPlayers = () => {
                         ? 1
                         : -1;
             })
-            .map((it, index) => ({
+            .map((it, index) => (
+                {
+                rank: index + 1,
+                Age:getAge(it.dob),
                 ...it,
-                rank: index + 1
             }))
     );
 };
