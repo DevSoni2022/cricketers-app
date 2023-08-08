@@ -72,3 +72,29 @@
     color: #000;
   }
 }
+
+.search-container{
+  position: relative;
+  .heading{
+    font-family: helvetica, "Segoe UI", Arial, sans-serif;
+        color: #222;
+        font-size: 20px;
+        line-height: 30px;
+        cursor: pointer;
+  }
+ul{
+  position: absolute;
+  z-index: 999;
+  display: block;
+  left: -100vw;
+  background: #fff;
+  padding: 6px 0;
+  margin: 0;
+  list-style: none;
+  width: 100px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 3px 8px rgba(0,0,0,.15);
+  box-shadow: 0 3px 8px rgba(0,0,0,.15);
+  left: 46%;
+}
+}

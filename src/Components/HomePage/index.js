@@ -8,7 +8,8 @@ const Home = () => {
   const [pageNumbers, setPageNumbers] = useState([]);
   const [sortBy, setSortBy] = useState(null);
   const [sortData, setSortData] = useState(null);
-
+  const [showSortBy,setshowSortBy] = useState(false);
+  const [sortByText,setSortByText] = useState(false)
   const getAge = (dateString) => {
     var today = new Date();
     var birthDate = new Date(dateString);
@@ -95,7 +96,8 @@ const Home = () => {
   ];
 
   const HandleSortBy = (ele) => {
-    debugger;
+    setshowSortBy(false)
+    setSortByText(ele.name)
     let type = ele.SortBy.toLowerCase();
     if (type == "rank") {
       const result = data.sort(function (a, b) {
@@ -151,15 +153,16 @@ const Home = () => {
             <div className="inner-container">
               <div className=""></div>
               <div className="search-container">
-                <lable>Choose Sort By</lable>
-                <ul>
-                  {sortObj &&
+                <lable className="heading" onClick={()=>{setshowSortBy(!sortBy)}}>{sortByText ? `Sort By ${sortByText}` :  'Choose Sort By'}</lable>
+                {showSortBy &&<ul>
+                  { sortObj &&
                     sortObj.map((ele, index) => {
                       return (
                         <li onClick={() => HandleSortBy(ele)}>{ele.SortBy}</li>
                       );
                     })}
                 </ul>
+            }
               </div>
             </div>
           </div>
