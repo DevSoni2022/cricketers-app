@@ -8,8 +8,8 @@ const Home = () => {
   const [pageNumbers, setPageNumbers] = useState([]);
   const [sortBy, setSortBy] = useState(null);
   const [sortData, setSortData] = useState(null);
-  const [showSortBy,setshowSortBy] = useState(false);
-  const [sortByText,setSortByText] = useState(null)
+  const [showSortBy, setshowSortBy] = useState(false);
+  const [sortByText, setSortByText] = useState(null);
   const getAge = (dateString) => {
     var today = new Date();
     var birthDate = new Date(dateString);
@@ -96,8 +96,8 @@ const Home = () => {
   ];
 
   const HandleSortBy = (ele) => {
-    setshowSortBy(false)
-    setSortByText(ele.name)
+    setshowSortBy(false);
+    setSortByText(ele.name);
     let type = ele.SortBy.toLowerCase();
     if (type == "rank") {
       const result = data.sort(function (a, b) {
@@ -110,8 +110,7 @@ const Home = () => {
         return 0;
       });
       setSortData(result);
-      setData(result)
-
+      setData(result);
     }
     if (type == "name") {
       const result = data.sort(function (a, b) {
@@ -124,7 +123,7 @@ const Home = () => {
         return 0;
       });
       setSortData(result);
-      setData(result)
+      setData(result);
     }
     if (type == "age") {
       const result = data.sort(function (a, b) {
@@ -137,7 +136,7 @@ const Home = () => {
         return 0;
       });
       setSortData(result);
-      setData(result)
+      setData(result);
     }
   };
   console.log(data, "{{{{");
@@ -145,6 +144,16 @@ const Home = () => {
   useEffect(() => {
     setData(sortData);
   }, [sortData]);
+
+  const handleOnChange = (ele) => {
+    let searchText = ele.target.value;
+    const result =searchText && searchText.length>0 && data.filter((ele, indx) => {
+      return (
+        ele.name && ele.name.toLowerCase().includes(searchText.toLowerCase()) ? ele:''
+      );
+    });
+    setData(result);
+  };
   return (
     <>
       {data && data.length > 0 ? (
@@ -152,18 +161,38 @@ const Home = () => {
           <h1 className="heading-top">Cricket App</h1>
           <div className="top-contariner">
             <div className="inner-container">
-              <div className=""></div>
               <div className="search-container">
-                <lable className="heading" onClick={()=>{setshowSortBy(!sortBy)}}>{sortByText && sortByText.length>0 ? `Sort By ${sortByText}` :  'Choose Sort By'}</lable>
-                {showSortBy &&<ul>
-                  { sortObj &&
-                    sortObj.map((ele, index) => {
-                      return (
-                        <li onClick={() => HandleSortBy(ele)}>{ele.SortBy}</li>
-                      );
-                    })}
-                </ul>
-            }
+                <div className="top-main">
+                  <input
+                    type="text"
+                    onChange={(ele) => handleOnChange(ele)}
+                    className="search0box"
+                    placeholder="Search Player name here....."
+                  />
+                  <lable
+                    className="heading"
+                    onClick={() => {
+                      setshowSortBy(!sortBy);
+                    }}
+                  >
+                    {sortByText && sortByText.length > 0
+                      ? `Sort By ${sortByText}`
+                      : "Choose Sort By"}
+                  </lable>
+                </div>
+
+                {showSortBy && (
+                  <ul>
+                    {sortObj &&
+                      sortObj.map((ele, index) => {
+                        return (
+                          <li onClick={() => HandleSortBy(ele)}>
+                            {ele.SortBy}
+                          </li>
+                        );
+                      })}
+                  </ul>
+                )}
               </div>
             </div>
           </div>
@@ -181,7 +210,11 @@ const Home = () => {
                   let AgeInYears = getAge(Dob);
                   let img = getPlayerTypeImage(ele && ele.type);
                   return (
-                    <a href={`/PlayerDetail/`+ele.id} className="player-card" key={index}>
+                    <a
+                      href={`/PlayerDetail/` + ele.id}
+                      className="player-card"
+                      key={index}
+                    >
                       <div className="player-name">{ele.name}</div>
                       <div className="player-role">
                         Type:{ele.type} {<img src={img} alt="player" />}

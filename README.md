@@ -16,7 +16,7 @@ User can Sort Players details based on different parameter.
 
 On Home page user can see whole list of player by using pagination.
 
-
+On Home Page user can Search Player by Name
 
 
 ## Details Page
@@ -26,6 +26,8 @@ When you want know more info about player click on that land on player-details p
 In Player details page user get more details about player.
 
 On Details page users also get similar type other Players
+
+By Click on Similer Type Player can land their details Page
 
 
 
