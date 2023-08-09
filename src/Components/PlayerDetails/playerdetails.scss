@@ -1,4 +1,12 @@
 .PlayerDetails{
+    .arrow-main{
+        position: relative;
+    left: -31%;
+    top: 5px;
+        svg{
+            width: 20px;
+        }
+    }
     .heading{
         font-size: 24px;
         line-height: 30px;
