@@ -10,6 +10,7 @@ const Home = () => {
   const [sortData, setSortData] = useState(null);
   const [showSortBy, setshowSortBy] = useState(false);
   const [sortByText, setSortByText] = useState(null);
+  const [serachText,setSearchText] = useState(null)
   const getAge = (dateString) => {
     var today = new Date();
     var birthDate = new Date(dateString);
@@ -147,6 +148,7 @@ const Home = () => {
 
   const handleOnChange = (ele) => {
     let searchText = ele.target.value;
+    setSearchText(searchText)
     const result =searchText && searchText.length>0 && data.filter((ele, indx) => {
       return (
         ele.name && ele.name.toLowerCase().includes(searchText.toLowerCase()) ? ele:''
@@ -278,7 +280,7 @@ const Home = () => {
           </div>
         </div>
       ) : (
-        <span>Loading</span>
+        <span>{serachText && serachText.length>0 ? 'No Result Found':'Loading'}</span>
       )}
     </>
   );
